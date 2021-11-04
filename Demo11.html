@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Demo11 v-if</title>
+    <script src="https://unpkg.com/vue@next"></script>
+    <style>
+        .one {color:red;}
+        .two {color:green;}
+        .three {color:orange;}
+    </style>
+</head>
+<body>
+    <!--  -->
+   <div id="app"></div> 
+</body>
+<script>
+    const app = Vue.createApp({
+        data() {
+            return {
+                message: "再见",
+            }
+        },
+        methods: {
+            handleItemClick() {
+                this.message = this.message == "再见" ? "你好" : "再见"
+            }
+        },
+        template: `
+            <h2 class="one" v-if="message == '你好'" @click="handleItemClick">{{message}}</h2>
+            <h2 class="two" v-else @click="handleItemClick">{{message}}</h2>
+        `
+    })
+    const vm = app.mount("#app")
+</script>
+</html>
