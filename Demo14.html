@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Demo14</title>
+    <script src="https://unpkg.com/vue@next" ></script>
+    <style>
+        .red {color: red;}
+        .green {color: green;}
+        .background {background-color: orange;}
+    </style>
+</head>
+<body>
+    <div id="app"></div>
+</body>
+<script>
+    const app = Vue.createApp({
+        data() {
+            return {
+                classString: 'red',
+                classObject: { red: true, background: true }
+            }
+        },
+        template: `
+            <h2 v-bind:class=[classString]>JSPang.com</h2>
+            <h2 :class="red">JSPang.com</h2>
+        `
+    })
+    const vm = app.mount("#app")
+</script>
+</html>
