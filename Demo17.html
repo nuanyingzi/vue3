@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Demo17 v-for</title>
+    <script src="https://unpkg.com/vue@next"></script>
+</head>
+<body>
+   <div id="app"></div> 
+</body>
+<script>
+    const app = Vue.createApp({
+        data() {
+            return {
+                listArray: ['谢大脚', '刘颖', '晓红'],
+                listObject: {
+                    GirlOne: '谢大脚',
+                    GirlTwo: '刘颖',
+                    GirlThree: '晓红',
+                }
+            }
+        },
+        methods: {
+            handleAddItem() {
+                this.listArray.push('JSPang.com')
+            }
+        },
+        template: `
+            <button @click="handleAddItem">点我加餐</button>
+            <ul>
+                <li v-for="(item, index) in listArray" :key="index+item">[{{index}}]{{item}}</li>
+            </ul>
+            <ul>
+                <li v-for="(value,key,index) in listObject" :key="key">[{{index}}]{{value}}-{{key}}</li>
+            </ul>
+            
+        `
+    })
+    const vm = app.mount("#app")
+</script>
+</html>

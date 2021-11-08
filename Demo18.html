@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Demo17 v-for进阶</title>
+    <script src="https://unpkg.com/vue@next"></script>
+</head>
+<body>
+   <div id="app"></div> 
+</body>
+<script>
+    const app = Vue.createApp({
+        data() {
+            return {
+                listArray: ['谢大脚', '刘颖', '晓红'],
+                listObject: {
+                    GirlOne: '谢大脚',
+                    GirlTwo: '刘颖',
+                    GirlThree: '晓红',
+                }
+            }
+        },
+        methods: {
+            handleAddItem() {
+                this.listArray.push('JSPang.com')
+            }
+        },
+        template: `
+            <ul>
+                <template
+                    v-for="(item, index) in listArray"
+                    :key="index+item"
+                >
+                    <li v-if="item != '谢大脚'">
+                        [{{index}}]{{item}}
+                    </li>
+                </template>
+            </ul>
+            
+        `
+    })
+    const vm = app.mount("#app")
+</script>
+</html>
