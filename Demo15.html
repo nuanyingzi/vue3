@@ -1,28 +1,56 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Demo15 进阶样式绑定</title>
-    <script src="https://unpkg.com/vue@next" ></script>
+    <script src="https://unpkg.com/vue@next"></script>
+    <style>
+        .red {
+            color: red;
+        }
+
+        .green {
+            color: green;
+        }
+
+        .background {
+            background-color: orange;
+        }
+    </style>
 </head>
+
 <body>
     <div id="app"></div>
 </body>
 <script>
     const app = Vue.createApp({
-        data() {},
+        data() {
+            return {
+                blueStyle: 'color: blue;',
+                styleString: 'color: orange;',
+                styleObject: {
+                    color: 'red',
+                    background: 'color: orange'
+                }
+            }
+        },
         template: `
-           <sonCom />
+            <h2 :style="styleObject">JSPang.com</h2>
+            <sonCom />
         `
     })
     app.component('sonCom', {
         template: `
-            <div>SonCom</div>
+            <div>
+                <div :class="blueStyle">SonCom</div>
+                <div class="green">技术胖</div>
+            </div>
         `
     })
     const vm = app.mount("#app")
-    
 </script>
+
 </html>

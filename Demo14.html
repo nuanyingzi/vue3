@@ -1,16 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Demo14 样式绑定</title>
-    <script src="https://unpkg.com/vue@next" ></script>
+    <script src="https://unpkg.com/vue@next"></script>
     <style>
-        .red {color: red;}
-        .green {color: green;}
-        .background {background-color: orange;}
+        .red {
+            color: red;
+        }
+
+        .green {
+            color: green;
+        }
+
+        .background {
+            background-color: orange;
+        }
     </style>
 </head>
+
 <body>
     <div id="app"></div>
 </body>
@@ -19,8 +29,13 @@
         data() {
             return {
                 classString: 'red', //通过普通字符串进行绑定；
-                classObject: { red: true, background: true }, //通过对象的方式进行绑定
-                classArray: ['green', 'background', {red: true}] //通过数组的方式进行绑定。
+                classObject: {
+                    red: true,
+                    background: true
+                }, //通过对象的方式进行绑定
+                classArray: ['green', 'background', {
+                    red: true
+                }] //通过数组的方式进行绑定。
             }
         },
         template: `
@@ -31,4 +46,5 @@
     })
     const vm = app.mount("#app")
 </script>
+
 </html>
