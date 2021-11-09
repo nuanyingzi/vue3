@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Demo20 绑定事件 事件修饰符</title>
+    <script src="https://unpkg.com/vue@next" ></script>
+</head>
+<body>
+    <div id="app"></div>
+    <!-- 
+        stop: 阻止冒泡事件
+        self: 只有点击自己的时候才会被执行
+        prevent：阻止默然行为的修饰符
+        capture：改成捕获模式，默认的模式都是冒泡模式，也就是从下到上，但是你用capture后，是从上到下的。
+        once：事件只执行一次
+        passive：解决滚动时性能的修饰符
+     -->
+</body>
+<script>
+    const app = Vue.createApp({
+        data() {
+            return {
+                count: 0
+            }
+        },
+        methods: {
+            addCountClick(event) {
+                this.count++
+                alert(0)
+            },
+            handleBtnClick1() {
+                alert(1)
+            }
+        },
+        template: `
+            <div style="border:1px solid #ccc;" @click="handleBtnClick1">
+                我是最外层的DIV文字
+                <div>当前佳丽数量：{{count}}</div>
+                <button @click.once="addCountClick">增加一位佳丽</button>
+            </div>
+        `
+    })
+    const vm = app.mount('#app')
+</script>
+</html>
